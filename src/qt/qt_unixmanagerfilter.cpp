@@ -43,6 +43,7 @@ void UnixManagerSocket::readyToRead()
             else if (line.data() == "pause")
             {
                 emit pause();
+                printf("%s \n", "Matched Pause")
             }
             else if (line.data() == "cad")
             {
