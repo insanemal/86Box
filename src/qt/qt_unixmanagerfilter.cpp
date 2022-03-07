@@ -44,7 +44,7 @@ void UnixManagerSocket::readyToRead()
             else if (strncmp(line.data(),"pause",255) == 0)
             {
                 emit pause();
-                printf("%s \n", "Matched Pause")
+                printf("%s \n", "Matched Pause");
             }
             else if (strncmp(line.data(),"cad",255) == 0)
             {
