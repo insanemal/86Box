@@ -29,7 +29,9 @@ void UnixManagerSocket::readyToRead()
 {
     if (canReadLine())
     {
+        printf("%s \n", "Reading line");
         QByteArray line = readLine();
+        printf("%lli \n", line.size());
         printf("%s \n", line.data());
         if (line.size())
         {
