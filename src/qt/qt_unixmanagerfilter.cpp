@@ -30,7 +30,7 @@ void UnixManagerSocket::readyToRead()
     if (canReadLine())
     {
         QByteArray line = readLine();
-        fprint("%s \n", line.data());
+        printf("%s \n", line.data());
         if (line.size())
         {
             if (line.data() == "showsettings")
