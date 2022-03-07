@@ -17,6 +17,7 @@
  */
 
 #include "qt_unixmanagerfilter.hpp"
+#include <stdio.h>
 
 UnixManagerSocket::UnixManagerSocket(QObject* obj)
     : QLocalSocket(obj)
