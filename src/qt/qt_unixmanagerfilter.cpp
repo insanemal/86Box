@@ -18,6 +18,7 @@
 
 #include "qt_unixmanagerfilter.hpp"
 #include <stdio.h>
+#include <string.h>
 
 UnixManagerSocket::UnixManagerSocket(QObject* obj)
     : QLocalSocket(obj)
@@ -36,28 +37,28 @@ void UnixManagerSocket::readyToRead()
         printf("%s \n", line.data());
         if (line.size())
         {
-            if (line.data() == "showsettings")
+            if (strncmp(line.data(),"showsettings",255) == 0)
             {
                 emit showsettings();
             }
-            else if (line.data() == "pause")
+            else if (strncmp(line.data(),"pause",255) == 0)
             {
                 emit pause();
                 printf("%s \n", "Matched Pause")
             }
-            else if (line.data() == "cad")
+            else if (strncmp(line.data(),"cad",255) == 0)
             {
                 emit ctrlaltdel();
             }
-            else if (line.data() == "reset")
+            else if (strncmp(line.data(),"reset",255) == 0)
             {
                 emit resetVM();
             }
-            else if (line.data() == "shutdownnoprompt")
+            else if (strncmp(line.data(),"shutdownnoprompt",255) == 0)
             {
                 emit force_shutdown();
             }
-            else if (line.data() == "shutdown")
+            else if (strncmp(line.data(),"shutdown",255) == 0)
             {
                 emit request_shutdown();
             }
